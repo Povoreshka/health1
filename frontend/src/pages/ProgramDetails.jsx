@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import './Programs.css';
+import './ProgramDetail.css';
 
 // Выносим константы данных из компонента
 const programExercises = {
