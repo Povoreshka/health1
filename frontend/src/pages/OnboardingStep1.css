@@ -1,0 +1,342 @@
+.onboarding-step1 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.onboarding-wrapper1 {
+  width: 100%;
+  background: white;
+  border-radius: 24px;
+  padding: 48px 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+  
+  /* Широкая версия для компьютеров */
+  max-width: 500px;
+}
+
+.back-button {
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  margin-bottom: 32px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background: #f8f9fa;
+  color: #1a1a1a;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.progress-step {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ccc;
+  background: #f8f9fa;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.progress-step.active {
+  background: #1a1a1a;
+  color: white;
+  animation: pulseStep 2s infinite;
+}
+
+.progress-line {
+  width: 60px;
+  height: 1px;
+  background: #f0f0f0;
+  margin: 0 8px;
+}
+
+.onboarding-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.onboarding-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.onboarding-header p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.form-container {
+  margin-bottom: 48px;
+}
+
+.form-group {
+  margin-bottom: 32px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 18px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #1a1a1a;
+  background: white;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 4px rgba(26, 26, 26, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.gender-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.gender-option {
+  padding: 24px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.gender-option:hover {
+  border-color: #ccc;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.gender-option.selected {
+  border-color: #1a1a1a;
+  background: #1a1a1a;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.15);
+}
+
+.gender-icon {
+  font-size: 40px;
+}
+
+.gender-option span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.next-button {
+  width: 100%;
+  padding: 20px 24px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.next-button:hover:not(.disabled) {
+  background: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.2);
+}
+
+.next-button:active:not(.disabled) {
+  transform: translateY(-1px);
+}
+
+.next-button.disabled {
+  background: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+@keyframes pulseStep {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+
+/* Большие мониторы (более 1440px) */
+@media (min-width: 1440px) {
+  .onboarding-wrapper {
+    max-width: 550px;
+    padding: 56px 48px;
+  }
+  
+  .onboarding-header h1 {
+    font-size: 36px;
+  }
+  
+  .onboarding-header p {
+    font-size: 18px;
+  }
+  
+  .form-input {
+    padding: 20px 24px;
+    font-size: 17px;
+  }
+  
+  .gender-option {
+    padding: 28px 24px;
+  }
+  
+  .gender-icon {
+    font-size: 44px;
+  }
+  
+  .gender-option span {
+    font-size: 17px;
+  }
+  
+  .next-button {
+    padding: 22px 28px;
+    font-size: 17px;
+  }
+}
+
+/* Компьютеры и ноутбуки (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .onboarding-wrapper {
+    max-width: 520px;
+    padding: 52px 44px;
+  }
+  
+  .gender-option {
+    padding: 22px 18px;
+  }
+}
+
+/* Планшеты (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .onboarding-wrapper {
+    max-width: 500px;
+    padding: 44px 36px;
+  }
+  
+  .gender-option {
+    padding: 20px 16px;
+  }
+  
+  .gender-icon {
+    font-size: 36px;
+  }
+}
+
+/* Мобильные устройства (до 767px) */
+@media (max-width: 767px) {
+  .onboarding-wrapper {
+    max-width: 100%;
+    padding: 40px 32px;
+    border-radius: 20px;
+  }
+  
+  .gender-options {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .gender-option {
+    padding: 20px 16px;
+  }
+  
+  .gender-icon {
+    font-size: 32px;
+  }
+  
+  .progress-line {
+    width: 40px;
+  }
+}
+
+/* Очень маленькие мобильные (до 480px) */
+@media (max-width: 480px) {
+  .onboarding-step1 {
+    padding: 16px;
+  }
+  
+  .onboarding-wrapper {
+    padding: 32px 24px;
+  }
+  
+  .onboarding-header h1 {
+    font-size: 28px;
+  }
+  
+  .onboarding-header p {
+    font-size: 15px;
+  }
+  
+  .form-input {
+    padding: 16px 18px;
+  }
+  
+  .gender-option {
+    padding: 16px 12px;
+  }
+  
+  .gender-option span {
+    font-size: 14px;
+  }
+}

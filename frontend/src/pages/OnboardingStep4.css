@@ -1,0 +1,328 @@
+.onboarding-step4 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.onboarding-wrapper4 {
+    width: 100%;
+    background: white;
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    max-width: 500px;
+}
+
+.back-button {
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    margin-bottom: 32px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.back-button:hover {
+    background: #f8f9fa;
+    color: #1a1a1a;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.progress-step {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ccc;
+    background: #f8f9fa;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.progress-step.active {
+    background: #1a1a1a;
+    color: white;
+    animation: pulseStep 2s infinite;
+}
+
+.progress-step.completed {
+    background: #1a1a1a;
+    color: white;
+}
+
+.progress-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -32px;
+    width: 24px;
+    height: 2px;
+    background: #f0f0f0;
+}
+
+.progress-step.completed:not(:last-child)::after {
+    background: #1a1a1a;
+}
+
+.onboarding-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.onboarding-header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+}
+
+.onboarding-header p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+.form-container {
+    margin-bottom: 48px;
+}
+
+.form-section {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.5s ease forwards;
+}
+
+.form-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.form-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.form-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.form-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-section label {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.section-description {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.experience-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.experience-card {
+    padding: 24px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: cardAppear 0.4s ease forwards;
+}
+
+.experience-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.experience-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.experience-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.experience-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.experience-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes cardAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.experience-card:hover {
+    border-color: #ccc;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.experience-card.selected {
+    border-color: #1a1a1a;
+    background: #1a1a1a;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(26, 26, 26, 0.15);
+}
+
+.experience-card.selected .experience-icon,
+.experience-card.selected h4,
+.experience-card.selected p {
+    color: white;
+}
+
+.experience-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.experience-content h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 6px 0;
+    transition: all 0.3s;
+}
+
+.experience-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+    transition: all 0.3s;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: buttonAppear 0.5s ease 0.6s forwards;
+}
+
+@keyframes buttonAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.next-button {
+    width: 100%;
+    padding: 20px 24px;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.next-button:hover:not(.disabled) {
+    background: #333;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(26, 26, 26, 0.2);
+}
+
+.next-button:active:not(.disabled) {
+    transform: translateY(-1px);
+}
+
+.next-button.disabled {
+    background: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+@keyframes pulseStep {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .onboarding-step4 {
+        padding: 16px;
+    }
+    
+    .onboarding-wrapper4 {
+        padding: 32px 24px;
+    }
+    
+    .onboarding-header h1 {
+        font-size: 28px;
+    }
+    
+    .experience-card {
+        padding: 20px 16px;
+        gap: 16px;
+    }
+    
+    .experience-icon {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-step:not(:last-child)::after {
+        right: -28px;
+        width: 20px;
+    }
+    
+    .progress-step {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    .onboarding-wrapper4 {
+        padding: 24px 20px;
+    }
+}

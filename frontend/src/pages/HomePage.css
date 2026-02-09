@@ -1,0 +1,522 @@
+.homepage {
+    min-height: 100vh;
+    background: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding-bottom: 80px; /* Для нижней навигации */
+}
+
+/* Ударный режим - верхняя плашка */
+.shock-mode-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 24px;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.shock-mode-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.shock-mode-icon {
+    font-size: 48px;
+    animation: pulse 2s infinite;
+}
+
+.shock-mode-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.shock-mode-info p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+.shock-mode-stats {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.shock-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+.shock-mode-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.shock-mode-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Основное содержимое */
+.homepage-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.welcome-section {
+    margin-bottom: 40px;
+}
+
+.welcome-section h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+}
+
+.welcome-section p {
+    font-size: 18px;
+    color: #666;
+    margin: 0;
+}
+
+/* Сегодняшняя тренировка */
+.today-workout-section {
+    margin-bottom: 40px;
+}
+
+.today-workout-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 20px 0;
+}
+
+.today-workout-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #667eea;
+}
+
+.workout-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.workout-icon {
+    font-size: 64px;
+    flex-shrink: 0;
+}
+
+.workout-info h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+}
+
+.workout-meta {
+    display: flex;
+    gap: 24px;
+}
+
+.duration {
+    font-size: 16px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+.status.completed {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status.pending {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.start-button {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.start-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+}
+
+.start-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Недельный график */
+.weekly-schedule-section {
+    margin-bottom: 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.view-all {
+    background: none;
+    border: none;
+    color: #667eea;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weekly-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.day-card {
+    padding: 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.day-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.day-card.today {
+    border: 2px solid #667eea;
+}
+
+.day-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.day-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 6px 0;
+}
+
+.day-name {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 4px 0;
+}
+
+.workout-duration {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+
+.day-status {
+    margin-left: auto;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.status-badge.completed {
+    background: #4CAF50;
+    color: white;
+}
+
+.status-badge.pending {
+    background: #FF9800;
+    color: white;
+}
+
+/* Быстрый доступ */
+.quick-actions-section {
+    margin-bottom: 40px;
+}
+
+.quick-actions-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.quick-action {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.quick-action:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.action-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.quick-action h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+}
+
+.quick-action p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Мотивация */
+.motivation-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.motivation-icon {
+    font-size: 64px;
+    flex-shrink: 0;
+}
+
+.motivation-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.motivation-content p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Нижняя навигация */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.nav-item.active {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.nav-item.active .nav-icon {
+    color: #667eea;
+}
+
+.nav-item.active .nav-label {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.nav-icon {
+    font-size: 24px;
+    color: #666;
+}
+
+.nav-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+}
+
+.nav-item:hover:not(.active) {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Загрузка */
+.homepage-loading {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepage-loading .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .shock-mode-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    
+    .shock-mode-stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .workout-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    
+    .workout-meta {
+        justify-content: center;
+    }
+    
+    .weekly-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .motivation-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .homepage-content {
+        padding: 24px 16px;
+    }
+    
+    .welcome-section h1 {
+        font-size: 28px;
+    }
+    
+    .today-workout-card {
+        padding: 24px;
+    }
+    
+    .workout-info h3 {
+        font-size: 24px;
+    }
+    
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+    }
+}

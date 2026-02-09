@@ -1,0 +1,970 @@
+/* Nutrition.css */
+
+/* Основные переменные */
+:root {
+  --primary-color: #667eea;
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-color: #764ba2;
+  --success-color: #4CAF50;
+  --warning-color: #FF9800;
+  --danger-color: #FF5D8F;
+  --light-bg: #f8f9fa;
+  --dark-text: #1a1a1a;
+  --gray-text: #666;
+  --light-text: #999;
+  --border-color: #e0e0e0;
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
+  --border-radius: 20px;
+  --border-radius-sm: 12px;
+  --border-radius-lg: 24px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Общие стили */
+.nutrition-page {
+  min-height: 100vh;
+  background: var(--light-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  padding-bottom: 60px;
+}
+
+/* Заголовок страницы */
+.nutrition-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 35px 20px;
+  background: white;
+  border-radius: 20px;
+  color: #1e293b;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.nutrition-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.nutrition-header h1 {
+  font-size: 2.8em;
+  margin-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  color: #1e293b;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+/* Круглая кнопка назад */
+.back-button {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #4CAF50; /* Зеленый вместо фиолетового */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1); /* Зеленый оттенок тени */
+  padding: 0;
+}
+
+.back-button:active {
+  transform: translateY(-50%) translateX(-4px) scale(0.95);
+  transition: var(--transition);
+}
+.back-button {
+  border: 2px solid #757575;
+  box-shadow: 0 4px 12px rgba(117, 117, 117, 0.1);
+}
+.back-button:hover {
+  background: linear-gradient(135deg, #757575 0%, #616161 100%);
+  box-shadow: 0 8px 25px rgba(117, 117, 117, 0.25);
+}
+.back-button span {
+  color: #757575;
+}
+
+.back-button:hover span {
+  color: white;
+  transform: translateX(-2px);
+}
+
+/* Вкладки - НЕ ЗАКРЕПЛЕНЫ */
+.nutrition-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 20px 24px;
+  background: white;
+  margin-bottom: 4px;
+}
+
+.tab-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-text);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--primary-color);
+}
+
+.tab-button.active {
+  background: var(--primary-gradient);
+  border-color: transparent;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+.tab-icon {
+  font-size: 20px;
+  transition: var(--transition);
+}
+
+.tab-button.active .tab-icon {
+  transform: scale(1.1);
+}
+
+.tab-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Основной контент */
+.nutrition-main {
+  padding: 24px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Заголовок контента */
+.content-header {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 24px;
+  border-left: 6px solid var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.content-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--gray-text);
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+/* Калорийный бейдж */
+.calories-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--light-bg);
+  border-radius: var(--border-radius-sm);
+  border: 2px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.calories-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--primary-color);
+}
+
+.calories-badge span {
+  font-size: 28px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.calories-title {
+  font-size: 12px;
+  color: var(--light-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.calories-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-text);
+}
+
+/* Цель по белку */
+.protein-target {
+  display: inline-block;
+}
+
+.target-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--light-bg);
+  border-radius: var(--border-radius-sm);
+  border: 2px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.target-info:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--success-color);
+}
+
+.target-icon {
+  font-size: 28px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.target-title {
+  font-size: 12px;
+  color: var(--light-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.target-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-text);
+}
+
+/* Макронутриенты */
+.macros-info {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 20px;
+}
+
+.macro-item {
+  text-align: center;
+}
+
+.macro-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.macro-label {
+  font-size: 14px;
+  color: var(--gray-text);
+  font-weight: 500;
+}
+
+/* Секции */
+.meal-plan,
+.tips-section,
+.protein-sources,
+.recipes-section,
+.principles-section,
+.superfoods-section,
+.rules-section,
+.low-calorie-foods {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.meal-plan h3,
+.tips-section h3,
+.protein-sources h3,
+.recipes-section h3,
+.principles-section h3,
+.superfoods-section h3,
+.rules-section h3,
+.low-calorie-foods h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Timeline для приемов пищи - ДВА СТОЛБИКА */
+.meals-timeline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.meal-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  position: relative;
+  transition: var(--transition);
+  animation: slideInRight 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.meal-card:nth-child(1) { animation-delay: 0.1s; }
+.meal-card:nth-child(2) { animation-delay: 0.15s; }
+.meal-card:nth-child(3) { animation-delay: 0.2s; }
+.meal-card:nth-child(4) { animation-delay: 0.25s; }
+.meal-card:nth-child(5) { animation-delay: 0.3s; }
+
+.meal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.meal-time {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: var(--light-bg);
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.meal-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0 0 12px 0;
+}
+
+.meal-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.meal-card li {
+  padding: 6px 0;
+  color: var(--gray-text);
+  font-size: 14px;
+  position: relative;
+  padding-left: 16px;
+  line-height: 1.4;
+}
+
+.meal-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Советы */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.tip-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.tip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--success-color);
+}
+
+.tip-number {
+  width: 36px;
+  height: 36px;
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tip-card p {
+  margin: 0;
+  color: var(--gray-text);
+  font-size: 14px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* Источники белка */
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.source-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.source-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--success-color);
+}
+
+.source-icon {
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-bg);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.source-info {
+  flex: 1;
+}
+
+.source-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0 0 4px 0;
+}
+
+.source-info p {
+  font-size: 12px;
+  color: var(--gray-text);
+  margin: 0;
+}
+
+/* Рецепты */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.recipe-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  transition: var(--transition);
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--warning-color);
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.recipe-header h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0;
+  flex: 1;
+}
+
+.recipe-protein {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success-color);
+  background: rgba(76, 175, 80, 0.1);
+  padding: 4px 10px;
+  border-radius: 16px;
+  white-space: nowrap;
+}
+
+.recipe-ingredients {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recipe-ingredients li {
+  padding: 6px 0;
+  color: var(--gray-text);
+  font-size: 13px;
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.4;
+}
+
+.recipe-ingredients li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--warning-color);
+  font-size: 14px;
+}
+
+/* Принципы */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.principle-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.principle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.principle-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.principle-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0 0 6px 0;
+}
+
+.principle-card p {
+  font-size: 12px;
+  color: var(--gray-text);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Суперфуды */
+.superfoods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.superfood-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.superfood-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--success-color);
+}
+
+.superfood-icon {
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-bg);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.superfood-info {
+  flex: 1;
+}
+
+.superfood-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0 0 4px 0;
+}
+
+.superfood-info p {
+  font-size: 12px;
+  color: var(--gray-text);
+  margin: 0;
+}
+
+/* Правила */
+.rules-list {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+}
+
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.rule-item:last-child {
+  border-bottom: none;
+}
+
+.rule-item:hover {
+  background: var(--light-bg);
+}
+
+.rule-check {
+  width: 20px;
+  height: 20px;
+  background: var(--success-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.rule-item p {
+  margin: 0;
+  color: var(--gray-text);
+  font-size: 14px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* Низкокалорийные продукты */
+.foods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.food-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--danger-color);
+}
+
+.food-icon {
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-bg);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.food-info {
+  flex: 1;
+}
+
+.food-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0 0 4px 0;
+}
+
+.food-info p {
+  font-size: 12px;
+  color: var(--gray-text);
+  margin: 0;
+}
+
+/* Советы внизу */
+.nutrition-tips {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  background: white;
+  border-top: 1px solid var(--border-color);
+}
+
+.global-tip {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.global-tip:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.tip-icon {
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-bg);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.global-tip h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0 0 6px 0;
+}
+
+.global-tip p {
+  font-size: 13px;
+  color: var(--gray-text);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .nutrition-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+  }
+  
+  .nutrition-header h1 {
+    font-size: 24px;
+  }
+  
+  .back-button {
+    width: 40px;
+    height: 40px;
+    left: 16px;
+  }
+  
+  .back-button span {
+    font-size: 16px;
+  }
+  
+  .nutrition-main {
+    padding: 16px;
+  }
+  
+  .content-header,
+  .meal-plan,
+  .tips-section,
+  .protein-sources,
+  .recipes-section,
+  .principles-section,
+  .superfoods-section,
+  .rules-section,
+  .low-calorie-foods {
+    padding: 20px;
+  }
+  
+  .meals-timeline {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .tips-grid,
+  .sources-grid,
+  .recipes-grid,
+  .principles-grid,
+  .superfoods-grid,
+  .foods-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .macros-info {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .nutrition-tips {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nutrition-tabs {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  
+  .tab-button {
+    flex-direction: row;
+    justify-content: center;
+    padding: 12px 16px;
+  }
+  
+  .tab-icon {
+    margin-right: 8px;
+  }
+  
+  .content-header h2 {
+    font-size: 22px;
+  }
+  
+  .description {
+    font-size: 14px;
+  }
+  
+  .meal-card,
+  .tip-card,
+  .source-card,
+  .recipe-card,
+  .principle-card,
+  .superfood-card,
+  .food-card,
+  .rule-item {
+    padding: 14px;
+  }
+  
+  .meal-plan h3,
+  .tips-section h3,
+  .protein-sources h3,
+  .recipes-section h3,
+  .principles-section h3,
+  .superfoods-section h3,
+  .rules-section h3,
+  .low-calorie-foods h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+}

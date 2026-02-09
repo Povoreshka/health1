@@ -1,0 +1,513 @@
+.dashboard {
+    min-height: 100vh;
+    background: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding-bottom: 40px;
+}
+
+/* Хедер дашборда */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 35px 20px;
+  background: white;
+  border-radius: 20px;
+  color: #1e293b;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.dashboard-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dashboard-header h1 {
+  font-size: 2.8em;
+  margin-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  color: #1e293b;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+/* .dashboard-header {
+    background: white;
+    padding: 32px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 32px;
+} */
+
+/* Круглая кнопка "Назад" */
+.back-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+    transform: translateY(-2px) translateX(-4px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+}
+
+.back-arrow {
+    font-size: 20px;
+    font-weight: 700;
+    color: #666;
+    transition: all 0.3s ease;
+    margin-right: 2px; /* Чтобы стрелка была по центру */
+}
+
+.back-button:hover .back-arrow {
+    color: white;
+    transform: translateX(-2px);
+}
+
+.back-button span:not(.back-arrow) {
+    display: none; /* Скрываем текст "Назад" */
+}
+
+.dashboard-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+}
+
+.dashboard-header p {
+    font-size: 18px;
+    color: #666;
+    margin: 0;
+}
+
+/* Основное содержимое */
+.dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Вкладки периода */
+.period-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    background: white;
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.tab {
+    flex: 1;
+    padding: 16px 24px;
+    background: none;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.tab.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+/* Общая статистика */
+.overall-stats {
+    margin-bottom: 40px;
+}
+
+.overall-stats h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    border-left: 4px solid #667eea;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    font-size: 48px;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.stat-info h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 4px 0;
+}
+
+.stat-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Секция графиков */
+.charts-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.chart-container h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chart-wrapper {
+    height: 300px;
+}
+
+.chart-container.full-width {
+    grid-column: 1 / -1;
+}
+
+.chart-container.full-width .chart-wrapper {
+    height: 350px;
+}
+
+/* Детальная статистика */
+.detailed-stats {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.detailed-stats h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stats-table {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s;
+}
+
+.stat-row:hover {
+    background: rgba(102, 126, 234, 0.05);
+    padding: 16px;
+    border-radius: 8px;
+    transform: translateX(4px);
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* Инсайты */
+.insights-section {
+    margin-bottom: 40px;
+}
+
+.insights-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.insight-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    border: 1px solid #f0f0f0;
+}
+
+.insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.insight-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.insight-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+}
+
+.insight-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Кнопка экспорта */
+.export-section {
+    text-align: center;
+}
+
+.export-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 20px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+    gap: 16px;
+}
+
+/* Загрузка */
+.dashboard-loading {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-loading .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container.full-width {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-content {
+        padding: 0 16px;
+    }
+    
+    .dashboard-header {
+        padding: 24px 16px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 28px;
+    }
+    
+    .back-button {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 16px;
+    }
+    
+    .back-arrow {
+        font-size: 18px;
+    }
+    
+    .period-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab {
+        flex: calc(50% - 6px);
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .export-btn {
+        padding: 16px 32px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .back-arrow {
+        font-size: 16px;
+    }
+    
+    .tab {
+        flex: 100%;
+    }
+    
+    .chart-wrapper {
+        height: 250px;
+    }
+    
+    .chart-container.full-width .chart-wrapper {
+        height: 300px;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+    
+    .stat-icon {
+        font-size: 36px;
+        width: 56px;
+        height: 56px;
+    }
+    
+    .stat-info h3 {
+        font-size: 28px;
+    }
+}

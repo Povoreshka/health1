@@ -1,0 +1,588 @@
+.start-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.start-content {
+  width: 100%;
+  text-align: center;
+  background: white;
+  border-radius: 24px;
+  padding: 48px 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  
+  /* Адаптивная ширина для компьютеров */
+  max-width: 500px;
+}
+
+.start-logo {
+  margin-bottom: 40px;
+}
+
+.emoji-container {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.logo-icon .emoji {
+  font-size: 80px;
+  display: block;
+  position: relative;
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-icon.animate .emoji {
+  animation: float 3s ease-in-out infinite, rotate 20s linear infinite;
+}
+
+.emoji-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 1;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.start-logo h1 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 24px 0 0 0;
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.tagline {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 16px;
+  font-weight: 400;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.description {
+  font-size: 16px;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 48px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.start-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 48px 0;
+}
+
+.feature {
+  padding: 24px 16px;
+  border-radius: 16px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.feature:hover {
+  background: #f1f3f5;
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.feature:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.feature:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.feature-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-emoji {
+  display: inline-block;
+  font-size: 36px;
+}
+
+.animated-emoji.stats {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animated-emoji.target {
+  animation: spin 3s linear infinite;
+}
+
+.animated-emoji.heart {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.feature h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.feature p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.start-button {
+  width: 100%;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 20px 32px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 16px 0 32px 0;
+  animation: fadeInUp 0.8s ease-out 1s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.start-button:hover {
+  background: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.2);
+}
+
+.start-button:active {
+  transform: translateY(-1px);
+}
+
+.start-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.start-button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+.login-prompt {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  animation: fadeInUp 0.8s ease-out 1.2s both;
+}
+
+.login-link {
+  color: #1a1a1a;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.login-link:hover {
+  color: #333;
+}
+
+.login-link:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #1a1a1a;
+  transition: width 0.3s ease;
+}
+
+.login-link:hover:after {
+  width: 100%;
+}
+
+/* Анимированные фоновые смайлики */
+.background-emojis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-emoji {
+  position: absolute;
+  font-size: 32px;
+  opacity: 0.08;
+  animation: floatAround 20s linear infinite;
+}
+
+.floating-emoji:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.floating-emoji:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; animation-duration: 25s; }
+.floating-emoji:nth-child(3) { bottom: 30%; left: 15%; animation-delay: 4s; animation-duration: 22s; }
+.floating-emoji:nth-child(4) { bottom: 15%; right: 5%; animation-delay: 6s; animation-duration: 28s; }
+.floating-emoji:nth-child(5) { top: 40%; left: 20%; animation-delay: 8s; font-size: 36px; }
+.floating-emoji:nth-child(6) { bottom: 40%; right: 20%; animation-delay: 10s; }
+.floating-emoji:nth-child(7) { top: 60%; left: 10%; animation-delay: 12s; font-size: 28px; }
+.floating-emoji:nth-child(8) { top: 15%; right: 25%; animation-delay: 14s; animation-duration: 30s; }
+
+/* Анимации */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes floatAround {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  25% { transform: translateY(-30px) translateX(30px) rotate(90deg); }
+  50% { transform: translateY(0) translateX(60px) rotate(180deg); }
+  75% { transform: translateY(30px) translateX(30px) rotate(270deg); }
+  100% { transform: translateY(0) translateX(0) rotate(360deg); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.15); opacity: 0.15; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.1); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(40, 40);
+    opacity: 0;
+  }
+}
+
+/* ========== АДАПТИВНОСТЬ ДЛЯ КОМПЬЮТЕРОВ ========== */
+
+/* Большие мониторы (более 1440px) */
+@media (min-width: 1440px) {
+  .start-content {
+    max-width: 600px;
+    padding: 64px 48px;
+  }
+  
+  .start-logo h1 {
+    font-size: 42px;
+  }
+  
+  .tagline {
+    font-size: 20px;
+  }
+  
+  .description {
+    font-size: 18px;
+    margin-bottom: 56px;
+  }
+  
+  .start-features {
+    gap: 32px;
+    margin: 56px 0;
+  }
+  
+  .feature {
+    padding: 32px 20px;
+  }
+  
+  .feature-icon {
+    font-size: 40px;
+    height: 72px;
+  }
+  
+  .animated-emoji {
+    font-size: 44px;
+  }
+  
+  .feature h3 {
+    font-size: 18px;
+  }
+  
+  .feature p {
+    font-size: 15px;
+  }
+  
+  .start-button {
+    padding: 24px 40px;
+    font-size: 20px;
+    margin: 20px 0 40px 0;
+  }
+  
+  .login-prompt {
+    font-size: 18px;
+  }
+  
+  .floating-emoji {
+    font-size: 40px;
+  }
+}
+
+/* Компьютеры и ноутбуки (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .start-content {
+    max-width: 550px;
+    padding: 56px 40px;
+  }
+  
+  .start-logo h1 {
+    font-size: 40px;
+  }
+  
+  .start-features {
+    gap: 28px;
+  }
+  
+  .feature {
+    padding: 28px 20px;
+  }
+  
+  .feature-icon {
+    height: 64px;
+  }
+}
+
+/* Планшеты (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .start-content {
+    max-width: 500px;
+    padding: 48px 32px;
+  }
+  
+  .start-features {
+    gap: 20px;
+  }
+}
+
+/* Мобильные устройства (до 767px) */
+@media (max-width: 767px) {
+  .start-content {
+    padding: 40px 24px;
+    border-radius: 20px;
+    backdrop-filter: none;
+    max-width: 400px;
+  }
+  
+  .emoji-container {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .logo-icon .emoji {
+    font-size: 64px;
+  }
+  
+  .start-logo h1 {
+    font-size: 32px;
+    margin-top: 20px;
+  }
+  
+  .tagline {
+    font-size: 16px;
+  }
+  
+  .description {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .start-features {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 40px 0;
+  }
+  
+  .feature {
+    padding: 20px 16px;
+  }
+  
+  .feature-icon {
+    font-size: 28px;
+    height: 48px;
+  }
+  
+  .animated-emoji {
+    font-size: 32px;
+  }
+  
+  .feature h3 {
+    font-size: 15px;
+  }
+  
+  .feature p {
+    font-size: 13px;
+  }
+  
+  .start-button {
+    padding: 18px 24px;
+    font-size: 16px;
+    margin: 12px 0 28px 0;
+  }
+  
+  .login-prompt {
+    font-size: 15px;
+  }
+  
+  .background-emojis {
+    display: none;
+  }
+}
+
+/* Очень маленькие мобильные (до 480px) */
+@media (max-width: 480px) {
+  .start-container {
+    padding: 16px;
+  }
+  
+  .start-content {
+    padding: 32px 20px;
+    max-width: 100%;
+  }
+  
+  .emoji-container {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .logo-icon .emoji {
+    font-size: 56px;
+  }
+  
+  .start-logo h1 {
+    font-size: 28px;
+    margin-top: 16px;
+  }
+  
+  .tagline {
+    font-size: 15px;
+  }
+  
+  .description {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  
+  .feature {
+    padding: 16px 12px;
+  }
+  
+  .feature-icon {
+    font-size: 24px;
+    height: 40px;
+  }
+  
+  .animated-emoji {
+    font-size: 28px;
+  }
+  
+  .feature h3 {
+    font-size: 14px;
+  }
+  
+  .feature p {
+    font-size: 12px;
+  }
+  
+  .start-button {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+}
+
+/* Отключение анимаций для пользователей с предпочтением reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-icon .emoji,
+  .logo-icon.animate .emoji,
+  .animated-emoji.stats,
+  .animated-emoji.target,
+  .animated-emoji.heart,
+  .floating-emoji,
+  .feature,
+  .start-button,
+  .login-prompt,
+  .tagline,
+  .description,
+  .start-logo h1 {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .feature:hover {
+    transform: none !important;
+  }
+  
+  .emoji-bg {
+    animation: none !important;
+  }
+}

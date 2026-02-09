@@ -1,0 +1,701 @@
+.onboarding-step2 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.onboarding-wrapper {
+    width: 100%;
+    background: white;
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    max-width: 800px;
+}
+
+.back-button {
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    margin-bottom: 28px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.back-button:hover {
+    background: #f8f9fa;
+    color: #1a1a1a;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 36px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.progress-step {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ccc;
+    background: #f8f9fa;
+    transition: all 0.3s;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    flex-shrink: 0;
+}
+
+.progress-step.active {
+    background: #1a1a1a;
+    color: white;
+    animation: pulseStep 2s infinite;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.progress-step.completed {
+    background: #1a1a1a;
+    color: white;
+}
+
+.progress-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -32px;
+    width: 24px;
+    height: 2px;
+    background: #f0f0f0;
+}
+
+.progress-step.completed:not(:last-child)::after {
+    background: #1a1a1a;
+}
+
+@keyframes pulseStep {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.onboarding-header {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.onboarding-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.2;
+}
+
+.onboarding-header p {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.form-container {
+    margin-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Рост и вес в одной строке */
+.parameters-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.parameter-column {
+    flex: 1;
+    min-width: 0;
+    padding: 24px;
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 220px;
+}
+
+.section-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Стили для ввода значений с кнопками +/- */
+.value-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.stepper-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.stepper-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    user-select: none;
+}
+
+.stepper-button:hover:not(:disabled) {
+    background: #e9ecef;
+    border-color: #ccc;
+    transform: scale(1.05);
+}
+
+.stepper-button:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.stepper-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #f8f9fa;
+    border-color: #f0f0f0;
+}
+
+.value-input-display {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.value-input {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1a1a1a;
+    background: transparent;
+    border: none;
+    text-align: center;
+    width: 100%;
+    max-width: 120px;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    outline: none;
+    -moz-appearance: textfield;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+.value-input:focus {
+    color: #1a73e8;
+    border-bottom-color: #1a73e8;
+}
+
+.value-input::placeholder {
+    color: #ccc;
+    font-size: 36px;
+    opacity: 0.7;
+}
+
+.value-input::-webkit-inner-spin-button,
+.value-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-unit {
+    font-size: 20px;
+    color: #666;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    align-self: flex-end;
+    margin-bottom: 8px;
+}
+
+.input-range-hints {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+    padding: 0 16px;
+}
+
+.range-hint {
+    font-size: 12px;
+    color: #999;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.bmi-section {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.bmi-card {
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+.bmi-header {
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+.bmi-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.bmi-value {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.bmi-value .value {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    word-break: break-word;
+}
+
+.bmi-value .unit {
+    font-size: 16px;
+    color: #666;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.bmi-category {
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+.category-text {
+    font-size: 18px;
+    font-weight: 600;
+    background: rgba(76, 175, 80, 0.1);
+    padding: 12px 24px;
+    border-radius: 24px;
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: break-word;
+    transition: all 0.3s ease;
+}
+
+.bmi-scale {
+    position: relative;
+    height: 60px;
+    background: #f8f9fa;
+    border-radius: 30px;
+    display: flex;
+    overflow: hidden;
+    margin-top: 40px;
+    border: 1px solid #e0e0e0;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.scale-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-width: 0;
+    flex: 1;
+}
+
+.underweight {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+
+.normal {
+    background: linear-gradient(135deg, #4CAF50, #66BB6A);
+}
+
+.overweight {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+
+.obese {
+    background: linear-gradient(135deg, #F44336, #EF5350);
+}
+
+.scale-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: -24px;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 2px;
+    box-sizing: border-box;
+}
+
+.scale-indicator {
+    position: absolute;
+    top: -32px;
+    transform: translateX(-50%);
+    height: 70px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: left 0.3s ease;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.indicator-line {
+    width: 2px;
+    height: 26px;
+    background: currentColor;
+    box-shadow: 0 0 6px currentColor;
+}
+
+.indicator-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: currentColor;
+    margin-top: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.indicator-value {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 6px;
+    color: currentColor;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    min-width: 45px;
+    text-align: center;
+    box-sizing: border-box;
+    white-space: nowrap;
+    word-break: normal;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+.next-button {
+    width: 100%;
+    max-width: 100%;
+    padding: 18px 20px;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+    word-break: break-word;
+}
+
+.next-button:hover:not(:disabled) {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.next-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.next-button:disabled {
+    background: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 600px) {
+    .onboarding-step2 {
+        padding: 16px;
+    }
+    
+    .onboarding-wrapper {
+        padding: 28px 20px;
+        margin: 0;
+        max-width: 100%;
+    }
+    
+    .parameters-row {
+        flex-direction: column;
+        gap: 16px;
+        max-width: 100%;
+    }
+    
+    .parameter-column {
+        padding: 20px;
+        max-width: 100%;
+        min-height: 200px;
+    }
+    
+    .value-input {
+        font-size: 42px;
+        max-width: 100px;
+    }
+    
+    .value-input::placeholder {
+        font-size: 32px;
+    }
+    
+    .bmi-value .value {
+        font-size: 36px;
+    }
+    
+    .category-text {
+        font-size: 16px;
+        padding: 10px 20px;
+        max-width: 100%;
+    }
+    
+    .bmi-section {
+        padding: 24px;
+        max-width: 100%;
+    }
+    
+    .bmi-scale {
+        height: 50px;
+        margin-top: 32px;
+        max-width: 100%;
+    }
+    
+    .scale-indicator {
+        top: -28px;
+        height: 60px;
+    }
+    
+    .scale-label {
+        font-size: 10px;
+        bottom: -20px;
+    }
+    
+    .progress-step {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+    
+    .progress-step:not(:last-child)::after {
+        right: -28px;
+        width: 20px;
+    }
+    
+    .stepper-controls {
+        gap: 16px;
+    }
+    
+    .stepper-button {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    
+    .input-unit {
+        font-size: 18px;
+    }
+    
+    .input-range-hints {
+        padding: 0 8px;
+    }
+    
+    .range-hint {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 400px) {
+    .onboarding-wrapper {
+        padding: 24px 16px;
+        max-width: 100%;
+    }
+    
+    .value-input {
+        font-size: 38px;
+        max-width: 90px;
+    }
+    
+    .value-input::placeholder {
+        font-size: 28px;
+    }
+    
+    .value-input-display {
+        min-width: 120px;
+    }
+    
+    .input-unit {
+        font-size: 16px;
+    }
+    
+    .bmi-header h3 {
+        font-size: 16px;
+    }
+    
+    .bmi-value .value {
+        font-size: 32px;
+    }
+    
+    .indicator-value {
+        font-size: 12px;
+        padding: 3px 6px;
+        min-width: 40px;
+    }
+    
+    .stepper-controls {
+        gap: 12px;
+    }
+    
+    .stepper-button {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+    
+    .parameter-column {
+        min-height: 180px;
+    }
+    
+    .input-range-hints {
+        padding: 0;
+    }
+}
+
+@media (max-width: 350px) {
+    .stepper-controls {
+        gap: 8px;
+    }
+    
+    .stepper-button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .value-input {
+        font-size: 34px;
+        max-width: 80px;
+    }
+    
+    .value-input::placeholder {
+        font-size: 24px;
+    }
+    
+    .input-unit {
+        font-size: 14px;
+    }
+    
+    .value-input-display {
+        min-width: 100px;
+    }
+}
