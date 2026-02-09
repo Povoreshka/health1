@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './Programs.css';
 
@@ -7,7 +7,6 @@ const ProgramDetail = () => {
     const navigate = useNavigate();
     const [program, setProgram] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [currentExercise, setCurrentExercise] = useState(0);
     const [timer, setTimer] = useState(null);
     const [timeLeft, setTimeLeft] = useState(0);
     const [isResting, setIsResting] = useState(false);
@@ -667,19 +666,28 @@ const ProgramDetail = () => {
     };
 
     useEffect(() => {
-        setTimeout(() => {
-            const programId = parseInt(id);
-            const exercises = programExercises[programId] || [];
-            const details = programDetails[programId] || {};
-            
-            setProgram({
-                id: programId,
-                ...details,
-                exercises: exercises
-            });
-            setLoading(false);
-        }, 500);
+        const loadProgram = () => {
+            setTimeout(() => {
+                const programId = parseInt(id);
+                const exercises = programExercises[programId] || [];
+                const details = programDetails[programId] || {};
+                
+                setProgram({
+                    id: programId,
+                    ...details,
+                    exercises: exercises
+                });
+                setLoading(false);
+            }, 500);
+        };
+
+        loadProgram();
     }, [id]);
+
+    const handleNext = useCallback(() => {
+        setIsResting(false);
+        setTimeLeft(0);
+    }, []);
 
     useEffect(() => {
         if (timer) {
@@ -692,7 +700,6 @@ const ProgramDetail = () => {
                     if (prev <= 1) {
                         clearInterval(newTimer);
                         if (isResting) {
-                            // Если отдых закончился, переходим к следующему подходу или упражнению
                             handleNext();
                         }
                         return 0;
@@ -705,28 +712,23 @@ const ProgramDetail = () => {
             
             return () => clearInterval(newTimer);
         }
-    }, [timeLeft, isResting]);
+    }, [timeLeft, isResting, handleNext, timer]);
 
-    const startRest = (seconds) => {
+    const startRest = useCallback((seconds) => {
         setIsResting(true);
         setTimeLeft(seconds);
-    };
+    }, []);
 
-    const startExercise = (seconds) => {
+    const startExercise = useCallback((seconds) => {
         setIsResting(false);
         setTimeLeft(seconds);
-    };
+    }, []);
 
-    const handleNext = () => {
-        setIsResting(false);
-        setTimeLeft(0);
-    };
-
-    const formatTime = (seconds) => {
+    const formatTime = useCallback((seconds) => {
         const mins = Math.floor(seconds / 60);
         const secs = seconds % 60;
         return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-    };
+    }, []);
 
     if (loading) {
         return (

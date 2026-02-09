@@ -5,7 +5,6 @@ import './OnboardingStep2.css';
 const OnboardingStep2 = () => {
     const [height, setHeight] = useState('170');
     const [weight, setWeight] = useState('90');
-    const [loading, setLoading] = useState(false);
     
     const navigate = useNavigate();
 

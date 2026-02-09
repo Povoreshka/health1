@@ -4,7 +4,6 @@ import './OnboardingStep3.css';
 
 const OnboardingStep3 = () => {
     const [goals, setGoals] = useState([]);
-    const [loading, setLoading] = useState(false);
     
     const navigate = useNavigate();
 
